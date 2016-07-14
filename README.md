@@ -1,14 +1,23 @@
 Sample input:
+
 1 9
+
 2 9
+
 3 9
+
 4 9
+
 5 9
+
 6 9
+
 7 9
+
 8
 
 
 
 Columns in input.txt should contain numeric vectors, as above.
+
 After running, output.txt will contain the vectors from input.txt, with the requested labels appended.
