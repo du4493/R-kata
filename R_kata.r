@@ -8,4 +8,5 @@ fifteen_selector <- mean%%15==0
 label[three_selector] <- "word"
 label[five_selector] <- "smith"
 label[fifteen_selector] <- "wordsmith"
-write.table(label,"output.txt")
+write.table(input_vectors, "output.txt", quote=F, row.names=F)
+write.table(label, "output.txt", append=T, quote=F)
