@@ -1,7 +1,7 @@
 #get input values, fill empty spaces, doesn't look for a header
 input_vectors <- read.table("input.txt", header=F, fill=T)
 
-#create a vector containing the means of the columns
+#create a vector containing the means of the columns, ignores NA values, incase vectors of differing lengths are provided
 mean <- colMeans(input_vectors, na.rm=T)
 
 #create a vector to output, contains the means in case all of the conditionals are false
