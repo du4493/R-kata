@@ -1,24 +1,21 @@
-#get input values, fill empty spaces, doesn't look for a header
 input_vectors <- read.table("input.txt", header=F, fill=T)
-
-#create a vector containing the means of the columns, ignores NA values, incase vectors of differing lengths are provided
 mean <- colMeans(input_vectors, na.rm=T)
 
-#create a vector to output
-label <- mean
+check_and_label <- function(means_vector){
 
-#creates logical vectors identifying which means satisfy the required conditions
-three_selector <- mean%%3==0
-five_selector <- mean%%5==0
-fifteen_selector <- mean%%15==0
+  label <- means_vector
 
-#changes values in label as needed 
-label[three_selector] <- "word"
-label[five_selector] <- "smith"
-label[fifteen_selector] <- "wordsmith"
+  three_selector <- means_vector%%3==0
+  five_selector <- means_vector%%5==0
+  fifteen_selector <- means_vector%%15==0
 
-#restates the input data in the output file
+  label[three_selector] <- "word"
+  label[five_selector] <- "smith"
+  label[fifteen_selector] <- "wordsmith"
+
+  return(label)
+
+}
+label <- check_and_label(mean)
 write.table(input_vectors, "output.txt", quote=F, row.names=F)
-
-#adds the contents of label to the output file
 write.table(label, "output.txt", append=T, quote=F)
